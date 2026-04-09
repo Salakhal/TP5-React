@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# TP5 - Découvrir la gestion de l'état et la structuration des composants React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🎯 Objectifs du TP
 
-## Available Scripts
+Ce TP vous apprend à :
+- ✅ Créer des formulaires contrôlés et non-contrôlés
+- ✅ Partager des données entre des composants parents/enfants
+- ✅ Utiliser le contexte React (Context API) pour gérer des informations globales
+- ✅ Maîtriser les hooks useState, useRef, useContext
+- ✅ Implémenter le Lifting State Up
 
-In the project directory, you can run:
+## 📋 Prérequis
 
-### `npm start`
+- Node.js (version 14 ou supérieure)
+- npm ou yarn
+- Connaissances de base en JavaScript et React
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 1. Créer le projet React
 
-### `npm test`
+```bash
+npx create-react-app tp5-react-debutant
+cd tp5-react-debutant
+```
+## 2. Remplacer les fichiers
+Remplacez le contenu du dossier `src/` par les fichiers fournis dans ce TP.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 3. Démarrer l'application
+```
+npm start
+```
+L'application s'ouvrira automatiquement sur `http://localhost:3000`
 
-### `npm run build`
+## 📁 Structure du projet
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+tp-react-debutant/
+├── public/
+│   └── index.html
+├── src/
+│   ├── App.js                 # Composant principal
+│   ├── App.css                # Styles principaux
+│   ├── index.js               # Point d'entrée
+│   ├── index.css              # Styles globaux
+│   ├── FormulaireControle.js  # Formulaire contrôlé
+│   ├── FormulaireNonControle.js # Formulaire non-contrôlé
+│   ├── TemperatureInput.js    # Composant input température
+│   ├── TemperatureConvertor.js # Convertisseur de température
+│   ├── UtilisateurContext.js  # Contexte utilisateur
+│   └── Profil.js              # Composant profil utilisateur
+├── package.json
+└── README.md
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+## 📚 Explication des concepts
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1. Formulaire Contrôlé
 
-### `npm run eject`
+Les formulaires contrôlés utilisent l'état React pour gérer les valeurs des champs.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Caractéristiques :**
+- Les données sont stockées dans le state
+- Validation en temps réel
+- Contrôle total des entrées utilisateur
+- Mise à jour immédiate de l'interface
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```jsx
+const [nom, setNom] = useState('');
+<input value={nom} onChange={(e) => setNom(e.target.value)} />
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2. Formulaire Non-Contrôlé
 
-## Learn More
+Les formulaires non-contrôlés utilisent des références (refs) pour lire les valeurs directement depuis le DOM.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Caractéristiques :**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Utilisation de useRef
+- Performance légèrement meilleure
+- Plus simple pour les formulaires simples
+- Moins de re-rendus
 
-### Code Splitting
+```jsx
+const nomRef = useRef();
+<input ref={nomRef} />
+const valeur = nomRef.current.value;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📺 Vidéo de Démo
+ la démonstration vidéo de l'application :
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+https://github.com/user-attachments/assets/051d5b9c-c80d-45c9-a888-454ff82b1f4f
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+## 👤 Auteur
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* **École Normale Supérieure de Marrakech**
+  
+* **Réalisé par :** SALMA LAKHAL
+  
+* **Filière  :** CLE_INFO_S5
+
+  
+* **Encadré par :** Pr. Mohamed LACHGAR
+
+* **Module :** `Développement Front-End moderne avec React`
